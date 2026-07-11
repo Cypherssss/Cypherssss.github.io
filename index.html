@@ -3,127 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Developer Portfolio</title>
     <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-dark: #1e293b;
-            --accent-blue: #38bdf8;
-            --text-muted: #94a3b8;
+            --bg-main: #090d16;
+            --bg-surface: #111827;
+            --bg-card: #1f2937;
+            --border-color: #374151;
+            --accent-glow: #38bdf8;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
         }
         body {
-            background-color: var(--bg-dark);
-            color: #f8fafc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         .navbar {
-            background-color: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
+            background-color: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
         }
         .text-accent {
-            color: var(--accent-blue);
+            color: var(--accent-glow);
         }
         .card-custom {
-            background-color: var(--card-dark);
-            border: 1px solid #334155;
-            transition: transform 0.2s, border-color 0.2s;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.25s ease-in-out;
         }
         .card-custom:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.05);
         }
-        .icon-box {
-            font-size: 2.5rem;
-            color: var(--accent-blue);
+        .badge-tech {
+            background-color: #1e1b4b;
+            color: #a5b4fc;
+            border: 1px solid #4338ca;
+            font-weight: 500;
         }
-        footer {
-            background-color: #020617;
-            border-top: 1px solid #1e293b;
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(56, 189, 248, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-glow);
+            font-size: 1.5rem;
+        }
+        section {
+            scroll-margin-top: 80px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <!-- Nav Grid -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-accent" href="#">&lt;DevPortfolio /&gt;</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold text-accent" href="#">&lt;Mark.Dev /&gt;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-2">
-                    <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+            <div class="collapse navbar-collapse justify-content-end" id="portfolioNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#expertise">Core Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero / About Section -->
-    <section id="about" class="py-5 mt-5 d-flex align-items-center" style="min-height: 80vh;">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <p class="text-accent fw-semibold mb-2">Hello, World!</p>
-                    <h1 class="display-3 fw-bold mb-3">I'm a Full-Stack Web Developer</h1>
-                    <p class="lead mb-4" style="color: var(--text-muted);">
-                        I specialize in building secure, responsive web applications with robust database management, clean user interfaces, and smooth performance.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="#projects" class="btn btn-outline-info btn-lg px-4">View My Work</a>
-                        <a href="#contact" class="btn btn-light btn-lg px-4">Let's Connect</a>
-                    </div>
+    <!-- Hero Section -->
+    <section id="about" class="container d-flex align-items-center" style="min-height: 90vh; pt: 100px;">
+        <div class="row w-100 align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background-color: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2);">
+                    <span class="w-2 h-2 rounded-circle bg-success d-inline-block" style="width: 8px; height: 8px;"></span>
+                    <span class="small text-accent fw-medium">Available for Technical Roles</span>
                 </div>
-                <div class="col-lg-5 text-center">
-                    <!-- Placeholder graphic using a Bootstrap Icon -->
-                    <div class="display-1 text-accent opacity-50">
-                        <i class="bi bi-code-square" style="font-size: 12rem;"></i>
-                    </div>
+                <h1 class="display-4 fw-bold lh-sm mb-3">Hi, I'm <span class="text-accent">Mark Andre</span>.<br>I Build Secure, Scalable Web Applications.</h1>
+                <p class="lead mb-4 style-desc" style="color: var(--text-secondary); max-width: 620px;">
+                    A backend-focused web developer specializing in defensive application design, structured relational databases, and clean, responsive layouts from the ground up.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#projects" class="btn btn-info btn-lg px-4 fw-medium text-dark bg-accent" style="background-color: var(--accent-glow); border: none;">Explore Systems</a>
+                    <a href="#contact" class="btn btn-outline-secondary btn-lg px-4">Get In Touch</a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center d-none d-lg-block">
+                <div class="p-5 mx-auto" style="max-width: 350px; opacity: 0.15;">
+                    <i class="bi bi-terminal-box" style="font-size: 14rem; color: var(--accent-glow);"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Core Competencies Section -->
-    <section id="skills" class="py-5" style="background-color: #0b111e;">
+    <!-- Core Expertise -->
+    <section id="expertise" class="py-5" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container py-4">
-            <h2 class="text-center fw-bold mb-5">Core Core Competencies</h2>
-            <div class="row g-4 justify-content-center">
-                <!-- Logic & Systems Core Competency -->
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Technical Core Competencies</h2>
+                <p style="color: var(--text-secondary);">The architectural layers and paradigms I apply to systems engineering.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Column 1 -->
                 <div class="col-md-4">
-                    <div class="card h-100 card-custom p-4 text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-shield-lock"></i>
-                        </div>
-                        <h4 class="fw-bold">Backend & Security</h4>
-                        <p style="color: var(--text-muted);">Implementing secure authentication systems, server logic, and structured parameter binding to guard against application vulnerabilities.</p>
+                    <div class="card h-100 card-custom p-4">
+                        <div class="icon-container mb-3"><i class="bi bi-shield-check"></i></div>
+                        <h4 class="h5 fw-bold mb-2">Backend Integrity &amp; Security</h4>
+                        <p class="small mb-0" style="color: var(--text-secondary);">
+                            [Insert your approach to writing bulletproof server-side logic, hashing strategies like PBKDF2, and preventing critical exploits.]
+                        </p>
                     </div>
                 </div>
-                <!-- Interface Core Competency -->
+                <!-- Column 2 -->
                 <div class="col-md-4">
-                    <div class="card h-100 card-custom p-4 text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-layout-text-window-reverse"></i>
-                        </div>
-                        <h4 class="fw-bold">Responsive UI/UX</h4>
-                        <p style="color: var(--text-muted);">Crafting lightweight, desktop-and-mobile optimized templates from scratch using structured design tokens and modern styling frameworks.</p>
+                    <div class="card h-100 card-custom p-4">
+                        <div class="icon-container mb-3"><i class="bi bi-window-sidebar"></i></div>
+                        <h4 class="h5 fw-bold mb-2">Interface Assembly</h4>
+                        <p class="small mb-0" style="color: var(--text-secondary);">
+                            [Insert details about how you translate structured design layouts into responsive, accessible view layers using styling toolkits.]
+                        </p>
                     </div>
                 </div>
-                <!-- Infrastructure Core Competency -->
+                <!-- Column 3 -->
                 <div class="col-md-4">
-                    <div class="card h-100 card-custom p-4 text-center">
-                        <div class="icon-box mb-3">
-                            <i class="bi bi-database"></i>
-                        </div>
-                        <h4 class="fw-bold">Database Architecture</h4>
-                        <p style="color: var(--text-muted);">Structuring efficient relationship models, maintaining clean server configurations, and optimizing data transaction flows.</p>
+                    <div class="card h-100 card-custom p-4">
+                        <div class="icon-container mb-3"><i class="bi bi-layer-forward"></i></div>
+                        <h4 class="h5 fw-bold mb-2">Data Operations</h4>
+                        <p class="small mb-0" style="color: var(--text-secondary);">
+                            [Insert details explaining how you handle database design, structured query optimization, and dynamic information mapping.]
+                        </p>
                     </div>
                 </div>
             </div>
@@ -131,74 +152,62 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container py-4">
-            <h2 class="text-center fw-bold mb-5">Featured Projects</h2>
+    <section id="projects" class="container py-5">
+        <div class="py-4">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <div>
+                    <h2 class="fw-bold mb-2">Featured Engineering Projects</h2>
+                    <p class="mb-0" style="color: var(--text-secondary);">Production-ready systems highlighting robust logic and architectural patterns.</p>
+                </div>
+            </div>
+            
             <div class="row g-4">
                 <!-- Project Card 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 card-custom">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <i class="bi bi-folder-symlink text-accent fs-3"></i>
-                                <div class="gap-2 d-flex">
-                                    <a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a>
-                                    <a href="#" class="text-accent fs-5"><i class="bi bi-box-arrow-up-right"></i></a>
-                                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 card-custom p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h3 class="h5 fw-bold mb-0 text-accent">[Project Name 1]</h3>
+                                <a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a>
                             </div>
-                            <h5 class="card-title fw-bold">Inter-Office System Gateway</h5>
-                            <p class="card-text small" style="color: var(--text-muted);">
-                                A real-time system incorporating inter-office messaging thread capabilities and dynamic, multi-role user dashboards.
+                            <p class="small" style="color: var(--text-secondary);">
+                                [Provide a concise 2-3 sentence overview of this system's ultimate business purpose, architectural core, and real-time features.]
                             </p>
-                            <div class="mt-3">
-                                <span class="badge bg-dark text-info border border-info me-1">MVC</span>
-                                <span class="badge bg-dark text-info border border-info me-1">Bootstrap</span>
-                                <span class="badge bg-dark text-info border border-info">SQL</span>
-                            </div>
+                            <h6 class="small fw-semibold mt-3 mb-2 text-white">Key Implementations:</h6>
+                            <ul class="small ps-3 text-secondary" style="color: var(--text-secondary);">
+                                <li>[Bullet 1: Server logic optimization or communication layer setup]</li>
+                                <li>[Bullet 2: Dynamic state rendering or routing management]</li>
+                            </ul>
+                        </div>
+                        <div class="mt-3 pt-2">
+                            <span class="badge badge-tech me-1">MVC Framework</span>
+                            <span class="badge badge-tech me-1">Bootstrap</span>
+                            <span class="badge badge-tech">Relational SQL</span>
                         </div>
                     </div>
                 </div>
+
                 <!-- Project Card 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 card-custom">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <i class="bi bi-folder-symlink text-accent fs-3"></i>
-                                <div class="gap-2 d-flex">
-                                    <a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a>
-                                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 card-custom p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h3 class="h5 fw-bold mb-0 text-accent">[Project Name 2]</h3>
+                                <a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a>
                             </div>
-                            <h5 class="card-title fw-bold">Secure Administrative Hub</h5>
-                            <p class="card-text small" style="color: var(--text-muted);">
-                                A platform featuring granular user action auditing for administrators, built on robust encryption and hashing principles.
+                            <p class="small" style="color: var(--text-secondary);">
+                                [Provide a concise description of an administrative platform focused on data tracking, parameter handling, and data safety layers.]
                             </p>
-                            <div class="mt-3">
-                                <span class="badge bg-dark text-info border border-info me-1">PHP</span>
-                                <span class="badge bg-dark text-info border border-info me-1">PBKDF2</span>
-                                <span class="badge bg-dark text-info border border-info">Prepared Stmts</span>
-                            </div>
+                            <h6 class="small fw-semibold mt-3 mb-2 text-white">Key Implementations:</h6>
+                            <ul class="small ps-3 text-secondary" style="color: var(--text-secondary);">
+                                <li>[Bullet 1: Cryptographic measures or secure input validation handling]</li>
+                                <li>[Bullet 2: Administrative features like user behavior metrics/logging logs]</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 card-custom">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <i class="bi bi-folder-symlink text-accent fs-3"></i>
-                                <div class="gap-2 d-flex">
-                                    <a href="#" class="text-white fs-5"><i class="bi bi-github"></i></a>
-                                </div>
-                            </div>
-                            <h5 class="card-title fw-bold">File Host Configuration Setup</h5>
-                            <p class="card-text small" style="color: var(--text-muted);">
-                                Tailored routing logic and local testing environments designed to standardize dynamic resource uploads securely.
-                            </p>
-                            <div class="mt-3">
-                                <span class="badge bg-dark text-info border border-info me-1">Apache</span>
-                                <span class="badge bg-dark text-info border border-info me-1">XAMPP</span>
-                                <span class="badge bg-dark text-info border border-info">Figma Layout</span>
-                            </div>
+                        <div class="mt-3 pt-2">
+                            <span class="badge badge-tech me-1">Backend Logic</span>
+                            <span class="badge badge-tech me-1">Data Auditing</span>
+                            <span class="badge badge-tech">UI/UX Layouts</span>
                         </div>
                     </div>
                 </div>
@@ -207,26 +216,29 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 text-center" style="background-color: #0b111e;">
+    <section id="contact" class="py-5 text-center" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color);">
         <div class="container py-4">
-            <h2 class="fw-bold mb-3">Get In Touch</h2>
-            <p class="mx-auto mb-5" style="max-width: 600px; color: var(--text-muted);">
-                Whether you want to discuss database architecture, system requirements, or look over some code, feel free to reach out.
+            <h2 class="fw-bold mb-3">Initiate Connection</h2>
+            <p class="mx-auto mb-4" style="max-width: 550px; color: var(--text-secondary);">
+                Available for engineering opportunities, system scoping, and architectural consulting. Let's build stable software.
             </p>
-            <div class="d-flex justify-content-center gap-4 fs-3">
-                <a href="https://github.com/Cypherssss" target="_blank" class="text-white hover-accent"><i class="bi bi-github"></i></a>
-                <a href="#" class="text-white hover-accent"><i class="bi bi-linkedin"></i></a>
-                <a href="mailto:your-email@example.com" class="text-white hover-accent"><i class="bi bi-envelope-at-fill"></i></a>
+            <div class="d-inline-flex gap-4 p-3 rounded-3" style="background-color: var(--bg-main); border: 1px solid var(--border-color);">
+                <a href="https://github.com/Cypherssss" target="_blank" class="text-white text-decoration-none d-flex align-items-center gap-2 small px-2">
+                    <i class="bi bi-github text-accent"></i> GitHub
+                </a>
+                <span class="text-muted">|</span>
+                <a href="mailto:your-email@example.com" class="text-white text-decoration-none d-flex align-items-center gap-2 small px-2">
+                    <i class="bi bi-envelope-check text-accent"></i> Email
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-4 text-center">
-        <p class="small mb-0 text-muted">&copy; 2026 Your Name. Powered by GitHub Pages.</p>
+    <footer class="py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+        <p class="small mb-0 text-muted">&copy; 2026 Mark Andre. Engineered from scratch via GitHub Pages.</p>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle CDN (Required for responsive navbar toggles) -->
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
