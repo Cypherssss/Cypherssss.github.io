@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark Andre | Systems & Backend Engineer</title>
+    <title>Mark Andre R. Bay-o | Systems & Backend Engineer</title>
     <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons CDN -->
@@ -43,16 +43,19 @@
         .main-content {
             padding-top: 80px;
         }
+        
+        /* Interactive Terminal Style & Animations */
         .card-terminal {
             background-color: var(--ide-surface);
             border: 1px solid var(--border-git);
             border-radius: 6px;
             overflow: hidden;
-            transition: all 0.2s ease;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-terminal:hover {
             border-color: var(--accent-glow);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
         }
         .terminal-header {
             background-color: #1a2333;
@@ -68,6 +71,34 @@
             border-radius: 50%;
             display: inline-block;
         }
+        
+        /* Animated Terminal Cursor */
+        .cursor-blink::after {
+            content: "_";
+            animation: blink 1s infinite steps(2, start);
+            color: var(--accent-glow);
+            font-weight: bold;
+        }
+        @keyframes blink {
+            to { visibility: hidden; }
+        }
+
+        /* Screen Scanline Effect overlay */
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
         .badge-tech {
             background-color: rgba(34, 49, 71, 0.5);
             color: var(--accent-glow);
@@ -79,6 +110,15 @@
         .text-function { color: var(--syntax-function); }
         .text-comment { color: var(--syntax-comment); }
         
+        /* Entry fade animation for lists */
+        .spec-list li {
+            transition: transform 0.2s ease;
+        }
+        .spec-list li:hover {
+            transform: translateX(4px);
+            color: var(--syntax-string) !important;
+        }
+
         section {
             scroll-margin-top: 100px;
             padding-bottom: 4rem;
@@ -91,29 +131,29 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold code-font text-accent" href="#">
-                <i class="bi bi-git me-2 text-warning"></i>git repository:<span class="text-white">cypherssss.github.io</span>
+                <i class="bi bi-git me-2 text-warning"></i>repository:<span class="text-white">mark-bayo.io</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#programmerNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="programmerNav">
                 <ul class="navbar-nav gap-3 code-font small">
-                    <li class="nav-item"><a class="nav-link" href="#about"><span class="text-keyword">01.</span> ~/about</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#expertise"><span class="text-keyword">02.</span> ~/expertise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects"><span class="text-keyword">03.</span> ~/projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><span class="text-keyword">04.</span> ~/contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about"><span class="text-keyword">01.</span> ~/identity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#expertise"><span class="text-keyword">02.</span> ~/pillars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><span class="text-keyword">03.</span> ~/systems</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><span class="text-keyword">04.</span> ~/endpoint</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Layout Grid -->
+    <!-- Layout Grid Structure -->
     <div class="container-fluid">
         <div class="row">
             
-            <!-- Left Panel (IDE Directory Structure Emulation for Desktop) -->
+            <!-- Left Side Panel (IDE Tree Blueprint) -->
             <div class="col-lg-2 d-none d-lg-block sidebar-mock small code-font">
-                <div class="text-comment mb-3 uppercase fw-bold tracking-wider">PROJECT EXPLORER</div>
+                <div class="text-comment mb-3 uppercase fw-bold tracking-wider">WORKSPACE PATHS</div>
                 <div class="mb-2 text-white"><i class="bi bi-folder-fill text-warning me-2"></i>src/</div>
                 <div class="ms-3 mb-2"><i class="bi bi-folder-fill text-info me-2"></i>controllers/</div>
                 <div class="ms-4 mb-2 text-comment"><i class="bi bi-filetype-php me-2"></i>HomeController.php</div>
@@ -121,37 +161,42 @@
                 <div class="ms-4 mb-2 text-comment"><i class="bi bi-filetype-php me-2"></i>homepage.php</div>
                 <div class="ms-3 mb-2"><i class="bi bi-folder-fill text-info me-2"></i>includes/</div>
                 <div class="ms-4 mb-2 text-comment"><i class="bi bi-filetype-php me-2"></i>database.php</div>
-                <div class="ms-3 mb-2 text-accent"><i class="bi bi-filetype-html me-2"></i>index.html <span class="badge bg-success p-1 text-dark" style="font-size: 10px;">M</span></div>
+                <div class="ms-3 text-accent mb-2"><i class="bi bi-filetype-html me-2"></i>index.html <span class="badge bg-success p-1 text-dark" style="font-size: 10px;">M</span></div>
                 <div class="mb-2 text-muted"><i class="bi bi-file-earmark-text me-2"></i>README.md</div>
                 <div class="mb-2 text-muted"><i class="bi bi-shield-slash me-2"></i>.htaccess</div>
             </div>
 
-            <!-- Right Panel (Main Content Body) -->
+            <!-- Right Main Work Panel -->
             <div class="col-lg-10 px-md-5 main-content">
 
-                <!-- About / Hero Term -->
+                <!-- Section 1: Hero Pitch (Console View) -->
                 <section id="about" class="d-flex align-items-center" style="min-height: 85vh;">
                     <div class="w-100">
-                        <div class="card-terminal mb-4">
+                        <div class="card-terminal scanlines mb-4">
                             <div class="terminal-header">
                                 <span class="dot" style="background-color: #ff5555;"></span>
                                 <span class="dot" style="background-color: #ffb86c;"></span>
                                 <span class="dot" style="background-color: #50fa7b;"></span>
-                                <span class="text-comment small ms-2 code-font">bash - user@developer-machine:~</span>
+                                <span class="text-comment small ms-2 code-font">bash - markbayo@core-engine:~</span>
                             </div>
                             <div class="card-body p-4 code-font">
-                                <p class="mb-1"><span class="text-success">guest@cypherssss:~$</span> cat bio.md</p>
+                                <div class="d-inline-flex align-items-center gap-2 px-2 py-1 mb-3 rounded border" style="background-color: rgba(80, 250, 123, 0.05); border-color: rgba(80, 250, 123, 0.2) !important;">
+                                    <span class="dot bg-success" style="width: 7px; height: 7px;"></span>
+                                    <span class="small text-success" style="font-size: 0.75rem;">Status: Ready for Technical Integration</span>
+                                </div>
+                                <p class="mb-1"><span class="text-success">guest@bayo-terminal:~$</span> cat developer.json</p>
+                                
                                 <h1 class="display-5 fw-bold text-white my-3">
                                     Mark Andre R. Bay-o
                                 </h1>
                                 <p class="lead" style="color: var(--syntax-comment);">
-                                    // 4th Year Student Developer rendering professional systems engineering.
+                                    // 4th Year Student Developer specializing in Backend Logic Systems.
                                 </p>
-                                <p class="mb-4">
-                                    Specializing in building backend logic architectures, parameter defenses, relational databases, and clean user view layers from wireframes.
+                                <p class="mb-4" style="max-width: 700px; line-height: 1.7;">
+                                    Focused on defensive web application engineering, optimized relational database architecture, structural session parameters, and clean front-end UI compilation from Figma prototypes.
                                 </p>
                                 <div class="d-flex gap-3 mt-4">
-                                    <a href="#projects" class="btn btn-outline-info code-font btn-sm px-3"><i class="bi bi-terminal me-2"></i>execute --view-projects</a>
+                                    <a href="#projects" class="btn btn-outline-info code-font btn-sm px-3 cursor-blink"><i class="bi bi-terminal me-2"></i>sh exec_view_systems</a>
                                     <a href="#contact" class="btn btn-outline-secondary code-font btn-sm px-3">curl --contact</a>
                                 </div>
                             </div>
@@ -159,45 +204,45 @@
                     </div>
                 </section>
 
-                <!-- Architecture & Core Competencies -->
+                <!-- Section 2: Technical Competencies (Functional Definitions) -->
                 <section id="expertise">
                     <div class="mb-4 code-font">
-                        <span class="text-keyword">public function</span> <span class="text-function">getCoreExpertise</span>() {
+                        <span class="text-keyword">public function</span> <span class="text-function">getCorePillars</span>() {
                     </div>
                     
                     <div class="row g-4 ps-md-3">
-                        <!-- Module 1 -->
+                        <!-- Card 1 -->
                         <div class="col-md-4">
                             <div class="card-terminal h-100">
-                                <div class="terminal-header"><span class="text-white small code-font">SecurityIntegrity.layer</span></div>
+                                <div class="terminal-header"><span class="text-white small code-font">InputValidation.pkg</span></div>
                                 <div class="card-body p-4 small">
-                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;Backend &amp; Input Validation /&gt;</h4>
-                                    <p class="text-comment mb-0">
-                                        Implementing strong cryptographic protections like PBKDF2 hashing for database authentication routines. Eliminating cross-vulnerability scopes by using prepared parameter state definitions to safely bind input layers.
+                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;Backend Integrity &amp; Security /&gt;</h4>
+                                    <p class="text-comment mb-0" style="line-height: 1.6;">
+                                        Mitigating SQL injection risks by utilizing prepared statements and tight parameter binding during database queries. Implementing industry security baselines like PBKDF2 password hashing routines during registration and account lifecycle shifts.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Module 2 -->
+                        <!-- Card 2 -->
                         <div class="col-md-4">
                             <div class="card-terminal h-100">
-                                <div class="terminal-header"><span class="text-white small code-font">InterfaceAssembly.layer</span></div>
+                                <div class="terminal-header"><span class="text-white small code-font">ResponsiveLayout.pkg</span></div>
                                 <div class="card-body p-4 small">
-                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;UI Layer Compilation /&gt;</h4>
-                                    <p class="text-comment mb-0">
-                                        Translating multi-device Figma interface models down to clean layout components. Utilizing modern grids and components to enforce smooth, lightweight responsive rendering on any device.
+                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;Interface Grid Assembly /&gt;</h4>
+                                    <p class="text-comment mb-0" style="line-height: 1.6;">
+                                        Translating initial interface layouts and wireframes directly from Figma designs into functional code components. Leveraging Bootstrap classes to build lightweight layouts optimized for cross-platform rendering across desktop and mobile form factors.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Module 3 -->
+                        <!-- Card 3 -->
                         <div class="col-md-4">
                             <div class="card-terminal h-100">
-                                <div class="terminal-header"><span class="text-white small code-font">DataOperations.layer</span></div>
+                                <div class="terminal-header"><span class="text-white small code-font">DataArchitecture.pkg</span></div>
                                 <div class="card-body p-4 small">
-                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;Database Management /&gt;</h4>
-                                    <p class="text-comment mb-0">
-                                        Assembling explicit relational systems and structural data mappings. Configuring web root tracking directories and managing localized tracking tables to secure upload mechanics across nodes.
+                                    <h4 class="h6 fw-bold text-accent mb-3">&lt;Data Infrastructure /&gt;</h4>
+                                    <p class="text-comment mb-0" style="line-height: 1.6;">
+                                        Structuring database relationship parameters and resolving web server configurations for dynamic operations. Handling role-based session arrays to enforce access controls across administrative modules.
                                     </p>
                                 </div>
                             </div>
@@ -206,81 +251,85 @@
                     <div class="mt-3 code-font"><span class="text-keyword">}</span></div>
                 </section>
 
-                <!-- Project Submodules -->
+                <!-- Section 3: Engineering Submodules (Case Studies) -->
                 <section id="projects">
                     <div class="mb-4 code-font">
-                        <span class="text-keyword">import</span> { productionSystems } <span class="text-keyword">from</span> <span class="text-string">'./featured-work'</span>;
+                        <span class="text-keyword">import</span> { structuralSystems } <span class="text-keyword">from</span> <span class="text-string">'./production-builds'</span>;
                     </div>
 
                     <div class="row g-4 ps-md-3">
-                        <!-- Project Block 1 -->
+                        <!-- System 1 -->
                         <div class="col-md-6">
                             <div class="card-terminal h-100 p-3">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <span class="text-string fw-bold code-font">"InterOffice_Messaging_Gateway"</span>
                                     <a href="#" class="text-white"><i class="bi bi-github"></i></a>
                                 </div>
-                                <p class="small text-muted mb-3">
-                                    A structured multi-role coordination dashboard framework built around an active model-view-controller paradigm. Handles multi-tier visibility rules and communications matrix states cleanly.
+                                <p class="small text-muted mb-3" style="line-height: 1.6;">
+                                    A structured web workspace built using clean architectural separation to manage operations and coordinate dynamic requirements across local government office sectors.
                                 </p>
                                 <div class="bg-dark p-2 rounded mb-3 small code-font" style="font-size: 0.8rem; background-color: #060911 !important; border: 1px solid var(--border-git);">
-                                    <span class="text-comment">// Key implementations</span><br>
-                                    * Structured <span class="text-keyword">tbl_discussion</span> schemas for messaging thread state.<br>
-                                    * Role-scoped session initialization for secure visibility barriers.
+                                    <span class="text-keyword">// Core Logged Submodules:</span>
+                                    <ul class="ps-3 text-comment spec-list list-unstyled mt-1">
+                                        <li>• Structured relational arrays to process message strings.</li>
+                                        <li>• Handled role-scoped sessions across administration routes.</li>
+                                    </ul>
                                 </div>
                                 <div>
-                                    <span class="badge badge-tech me-1">MVC</span>
-                                    <span class="badge badge-tech me-1">Bootstrap</span>
+                                    <span class="badge badge-tech me-1">MVC Framework</span>
+                                    <span class="badge badge-tech me-1">Bootstrap CSS</span>
                                     <span class="badge badge-tech">Relational SQL</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Project Block 2 -->
+                        <!-- System 2 -->
                         <div class="col-md-6">
                             <div class="card-terminal h-100 p-3">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <span class="text-string fw-bold code-font">"Administrative_Audit_Hub"</span>
+                                    <span class="text-string fw-bold code-font">"Administrative_Oversight_Hub"</span>
                                     <a href="#" class="text-white"><i class="bi bi-github"></i></a>
                                 </div>
-                                <p class="small text-muted mb-3">
-                                    A secure interface engineered to handle complex user data tracking constraints with administrative metrics monitors. Built completely around cryptographic security rules.
+                                <p class="small text-muted mb-3" style="line-height: 1.6;">
+                                    An administrative operations dashboard emphasizing credential security, user action monitoring, and strict control constraints.
                                 </p>
                                 <div class="bg-dark p-2 rounded mb-3 small code-font" style="font-size: 0.8rem; background-color: #060911 !important; border: 1px solid var(--border-git);">
-                                    <span class="text-comment">// Key implementations</span><br>
-                                    * Real-time listener logging active user operations for admins.<br>
-                                    * Integrated <span class="text-function">PBKDF2</span> standard encryption to protect dynamic states.
+                                    <span class="text-keyword">// Core Logged Submodules:</span>
+                                    <ul class="ps-3 text-comment spec-list list-unstyled mt-1">
+                                        <li>• Integrated user tracking indicators for administrative control panels.</li>
+                                        <li>• Enforced prepared parameter validation to isolate queries.</li>
+                                    </ul>
                                 </div>
                                 <div>
-                                    <span class="badge badge-tech me-1">PHP Back-end</span>
-                                    <span class="badge badge-tech me-1">Encryption Layer</span>
-                                    <span class="badge badge-tech">UI/UX Layouts</span>
+                                    <span class="badge badge-tech me-1">PHP Core</span>
+                                    <span class="badge badge-tech me-1">PBKDF2 Hashing</span>
+                                    <span class="badge badge-tech">Audit Logging</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Contact Endpoint -->
+                <!-- Section 4: Contact Endpoint Connection -->
                 <section id="contact" class="mb-5">
                     <div class="card-terminal p-4 text-center code-font">
-                        <h3 class="h5 fw-bold text-keyword mb-3">System.out.println("Let's connect!");</h3>
-                        <p class="small text-comment mb-4">// Available for back-end engineering roles, dashboard design, and infrastructure development.</p>
+                        <h3 class="h5 fw-bold text-keyword mb-3">System.out.println("Status: Live");</h3>
+                        <p class="small text-comment mb-4">// Open to engineering positions, workflow optimization, and database architecture roles.</p>
                         
                         <div class="d-flex justify-content-center flex-wrap gap-3">
-                            <div class="p-2 rounded bg-dark border small text-start" style="border-color: var(--border-git) !important; min-width: 250px;">
-                                <span class="text-success">invoke:</span> <a href="mailto:your-email@example.com" class="text-white text-decoration-none"><i class="bi bi-envelope-at me-2 text-accent"></i>Send Mail</a>
+                            <div class="p-2 rounded bg-dark border small text-start" style="border-color: var(--border-git) !important; min-width: 260px;">
+                                <span class="text-success">dial:</span> <a href="mailto:your-email@example.com" class="text-white text-decoration-none"><i class="bi bi-envelope-check me-2 text-accent"></i>Send Mail Connection</a>
                             </div>
-                            <div class="p-2 rounded bg-dark border small text-start" style="border-color: var(--border-git) !important; min-width: 250px;">
-                                <span class="text-success">remote:</span> <a href="https://github.com/Cypherssss" target="_blank" class="text-white text-decoration-none"><i class="bi bi-github me-2 text-accent"></i>GitHub Profile</a>
+                            <div class="p-2 rounded bg-dark border small text-start" style="border-color: var(--border-git) !important; min-width: 260px;">
+                                <span class="text-success">remote:</span> <a href="https://github.com/Cypherssss" target="_blank" class="text-white text-decoration-none"><i class="bi bi-github me-2 text-accent"></i>GitHub Repositories</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Footer Log -->
+                <!-- Terminal Footer -->
                 <footer class="py-4 text-center text-comment small code-font border-top" style="border-color: var(--border-git) !important;">
-                    [System Log: Execution Successful. Environment: GitHub Pages. © 2026]
+                    [Process terminated successfully. Host: GitHub Pages. Current Year: 2026]
                 </footer>
 
             </div>
