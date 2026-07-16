@@ -3,347 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruiter-Optimized Portfolio</title>
-    <!-- Simple, legible font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mark Andre R. Bay-o | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <style>
-        /* CSS Reset for consistent display */
-        :root {
-            --bg: #121212; /* Dark background similar to your prev screenshots */
-            --bg-accent: #1e1e1e;
-            --text: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #5eac40; /* Neutral, pleasant accent color */
-            --skill-bg: #2a2a2a;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    <!-- Custom Tailwind Configuration for Animations and Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: '#5eac40', // Accent green
+                        darkBg: '#0b0c10', // Deep rich dark background
+                        darkCard: '#14151a', // Soft dark for cards
+                        darkBorder: '#22252e'
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(25px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
         }
+    </script>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+    <style>
+        /* Smooth scrolling */
+        html {
             scroll-behavior: smooth;
         }
-
-        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
-        a:hover { color: var(--accent); }
-
-        ul { list-style-type: none; }
-
-        /* Utility Classes */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        /* Hero Section - The Initial Vibe Check */
-        header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--bg) 60%, var(--bg-accent) 100%);
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .hero-title span { color: var(--accent); }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .hero-bio {
-            max-width: 600px;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg);
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(94, 172, 64, 0.4);
-            color: var(--bg);
-        }
-
-        /* Section Styling */
-        section { padding: 80px 0; }
-        .alternating-section { background-color: var(--bg-accent); }
-
-        /* Skills Section - At a Glance */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background-color: var(--skill-bg);
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 500;
-            border: 1px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-
-        .skill-item:hover { border-color: var(--accent); }
-
-        /* Projects Section - Real World Proof */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--skill-bg);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        /* Project image visualization for image_0.png */
-        .project-image-placeholder {
-            height: 160px;
-            background-color: #2a2a2a; /* Neutral grey placeholder */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-weight: 500;
-            position: relative;
-        }
-
-        .project-info { padding: 1.5rem; }
-        
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            height: 4.5rem; /* Forces consistent height across cards */
-            overflow: hidden;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            font-size: 0.8rem;
-            background-color: var(--skill-bg);
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            color: var(--text-secondary);
-        }
-
-        /* Experience/Contact Sections */
-        .experience-item {
-            margin-bottom: 2rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--accent);
-        }
-
-        .experience-role { font-size: 1.25rem; font-weight: 600; }
-        .experience-company { font-weight: 500; color: var(--text); }
-        .experience-date { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;}
-        
-        .experience-desc ul { list-style-type: disc; padding-left: 1rem; color: var(--text-secondary); }
-
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--skill-bg);
-        }
-
-        /* Smooth visual structure for mobile screens */
-        @media (max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.25rem; }
-            section { padding: 60px 0; }
-        }
+        /* Style adjustments to make things pop */
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
     </style>
 </head>
-<body>
+<body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-brand selection:text-darkBg">
 
-    <!-- 🌐 The Recruiter Initial Vibe Check -->
-    <header>
-        <div class="container hero-content">
-            <h1 class="hero-title">Hello, I'm <span>[Your Name Here]</span>.</h1>
-            <p class="hero-subtitle">[Your Job Title / Core Specialization]</p>
-            <p class="hero-bio">Highly motivated software developer with [Number] years of experience building scalable applications. I specialize in front-end architecture and UI/UX design, creating clean code and intuitive user experiences.</p>
-            <div>
-                <a href="#projects" class="btn">View My Work</a>
+    <!-- 🌐 Header / Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-darkBorder">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-lg font-bold tracking-wider text-white hover:text-brand transition-colors">
+                MB<span class="text-brand">.</span>
+            </a>
+            <div class="flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#skills" class="hover:text-brand transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-brand transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-brand transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🚀 Animated Hero Section with Background Image -->
+    <header class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-cover bg-center" 
+            style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1920&auto=format&fit=crop');">
+        
+        <!-- Gradient overlay to blend background image seamlessly into the layout -->
+        <div class="absolute inset-0 bg-gradient-to-r from-darkBg via-darkBg/90 to-darkBg/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent"></div>
+
+        <div class="relative max-w-6xl mx-auto px-6 w-full z-10 py-12">
+            <div class="max-w-2xl flex flex-col gap-5">
+                <span class="text-brand font-semibold text-sm tracking-widest uppercase animate-fade-in-up">
+                    Available for Opportunities
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none animate-fade-in-up fade-in-delay-1">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-green-400">Mark Andre</span>.
+                </h1>
+                <p class="text-lg md:text-xl font-medium text-gray-300 animate-fade-in-up fade-in-delay-1">
+                    Web & Database Developer
+                </p>
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed max-w-xl animate-fade-in-up fade-in-delay-2">
+                    I specialize in designing, building, and maintaining efficient web applications and database systems. Focused on producing clean code, secure document solutions, and reliable user interfaces.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4 animate-fade-in-up fade-in-delay-2">
+                    <a href="#projects" class="inline-flex items-center justify-center px-6 py-3 bg-brand text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
+                        Explore Projects
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-transparent border border-gray-700 hover:border-brand text-white font-medium text-sm rounded-lg transition-all duration-200">
+                        Get in Touch
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 🛠️ Skills - At a Glance Expertise -->
-    <section id="skills" class="alternating-section">
-        <div class="container">
-            <h2 class="section-title">Core Skills</h2>
-            <div class="skills-grid">
-                <!-- Example Skills - Add your actual skills here -->
-                <div class="skill-item">HTML/CSS/JS</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">React / Next.js</div>
-                <div class="skill-item">Vue</div>
-                <div class="skill-item">Node.js</div>
-                <div class="skill-item">UI/UX Design</div>
-                <div class="skill-item">Vercel/Vite</div>
-                <div class="skill-item">Version Control</div>
+    <!-- 🛠️ Core Skills Section -->
+    <section id="skills" class="py-24 bg-darkCard/30 border-y border-darkBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Core Skills</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <!-- Stack cards featuring subtle scaling transitions -->
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">PHP</div>
+                    <div class="text-xs text-gray-500 mt-1">Backend Logic & APIs</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">SQL / Relational Databases</div>
+                    <div class="text-xs text-gray-500 mt-1">Database Schema & Architecture</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">JavaScript</div>
+                    <div class="text-xs text-gray-500 mt-1">Dynamic Frontend & Systems</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Tailwind CSS</div>
+                    <div class="text-xs text-gray-500 mt-1">Utility-First Layout Design</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Bootstrap</div>
+                    <div class="text-xs text-gray-500 mt-1">Rapid UI Prototyping</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">HTML5 & CSS3</div>
+                    <div class="text-xs text-gray-500 mt-1">Structured Web Layouts</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Version Control</div>
+                    <div class="text-xs text-gray-500 mt-1">Git / GitHub Repositories</div>
+                </div>
+                <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
+                    <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Vercel Deployment</div>
+                    <div class="text-xs text-gray-500 mt-1">Continuous Cloud Hosting</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 🚀 Projects - Real World Impact -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px;">A selection of projects that showcase my ability to design, build, and deploy functional software. (Visualize images similar to image_0.png here).</p>
-            
-            <div class="projects-grid">
-                
-                <!-- Project Card 1 - Example -->
-                <article class="project-card">
-                    <div class="project-image-placeholder">Project Screenshot</div>
-                    <div class="project-info">
-                        <h3 class="project-title">E-Commerce Platform</h3>
-                        <p class="project-desc">A full-stack online store solution with payment integration and order management built using Next.js and Stripe.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Next.js</span>
-                            <span class="project-tag">TypeScript</span>
-                            <span class="project-tag">Stripe</span>
+    <!-- 🚀 Projects Section -->
+    <section id="projects" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Projects</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project Card 1: Document Tracking System -->
+                <article class="bg-darkCard border border-darkBorder rounded-xl overflow-hidden group hover:border-brand/40 hover:shadow-xl hover:shadow-brand/5 transition-all duration-300 flex flex-col">
+                    <div class="relative h-48 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" 
+                             style="background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop');">
                         </div>
-                        <a href="https://your-project-link.vercel.app/" target="_blank">View Live <span aria-hidden="true">→</span></a>
+                        <div class="absolute inset-0 bg-darkBg/40 backdrop-blur-[2px]"></div>
+                        <span class="relative z-10 text-xs font-bold uppercase tracking-widest text-brand bg-darkBg/90 px-3 py-1.5 rounded border border-darkBorder">
+                            Production Ready
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand transition-colors">Document Tracking System</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed mb-4">
+                            Developed a secure digital document tracking and routing solution for the Mayor's Office. Simplifies complex file navigation, status logging, and department workflows.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">PHP</span>
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">SQL</span>
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">Bootstrap</span>
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-xs font-semibold">
+                            <span class="text-gray-400">Deployed via Vercel / Live Server</span>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Project Card 2 - Example -->
-                <article class="project-card">
-                    <div class="project-image-placeholder">Project Screenshot</div>
-                    <div class="project-info">
-                        <h3 class="project-title">AI Content Generator</h3>
-                        <p class="project-desc">A web application that interfaces with an LLM API to generate marketing copy and content from user prompts.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">OpenAI</span>
+                <!-- Project Card 2: Abstract Placeholder -->
+                <article class="bg-darkCard border border-darkBorder rounded-xl overflow-hidden group hover:border-brand/40 hover:shadow-xl hover:shadow-brand/5 transition-all duration-300 flex flex-col">
+                    <div class="relative h-48 bg-slate-900 overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" 
+                             style="background-image: url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop');">
                         </div>
-                        <a href="https://your-project-link.vercel.app/" target="_blank">View Live <span aria-hidden="true">→</span></a>
+                        <div class="absolute inset-0 bg-darkBg/40 backdrop-blur-[2px]"></div>
+                        <span class="relative z-10 text-xs font-bold uppercase tracking-widest text-brand bg-darkBg/90 px-3 py-1.5 rounded border border-darkBorder">
+                            Side Project
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand transition-colors">Responsive Web Applications</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed mb-4">
+                            Designing and maintaining clean dynamic web systems. Utilizing utility frameworks and responsive design systems to build accessible, lightning-fast UI experiences.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">HTML5</span>
+                            <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">Git</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-xs font-semibold text-brand">
+                            <a href="#" class="hover:underline flex items-center gap-1">Live Preview <span>&rarr;</span></a>
+                        </div>
                     </div>
                 </article>
-
-                <!-- Add more project cards here following the same structure -->
-
             </div>
         </div>
     </section>
 
-    <!-- 💼 Experience - Professional Context -->
-    <section id="experience" class="alternating-section">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            
-            <!-- Experience Item 1 -->
-            <div class="experience-item">
-                <p class="experience-role">[Your Job Role]</p>
-                <p class="experience-company">[Company Name] | [Location]</p>
-                <p class="experience-date">[Month, Year] – [Present/Month, Year]</p>
-                <div class="experience-desc">
-                    <ul>
-                        <li>Led development on key user-facing features, improving engagement by 20%.</li>
-                        <li>Implemented CI/CD pipelines using [Tool] to streamline deployment.</li>
-                        <li>Mentored junior developers on best practices in UI development.</li>
+    <!-- 💼 Work & Practicum Experience -->
+    <section id="experience" class="py-24 bg-darkCard/30 border-y border-darkBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Work Experience</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
+            </div>
+
+            <div class="space-y-12 max-w-3xl">
+                <!-- Practicum Experience -->
+                <div class="relative pl-6 border-l-2 border-brand/40">
+                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
+                    <h3 class="text-lg font-bold text-white">Practicum Intern — Web Development</h3>
+                    <p class="text-sm font-medium text-brand mt-1">Municipal Planning and Development Office, LGU Itogon</p>
+                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | March 2026 – May 2026</p>
+                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
+                        <li>Designed, configured, and developed features for the digital Document Tracking System directly servicing the Itogon Mayor's Office.</li>
+                        <li>Successfully structured and managed standard database schemas in SQL to route and verify documents securely.</li>
+                        <li>Presented development milestones to the mayor's office, collected structured stakeholder feedback, and iterated on visual and technical updates.</li>
                     </ul>
                 </div>
             </div>
-
-            <!-- Add more experience items as needed -->
-
         </div>
     </section>
 
-    <!-- 📞 Contact - Making it Easy to Connect -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">I am currently open to new opportunities. Let's connect.</p>
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-                <a href="mailto:your-email@example.com" class="btn">Send Email</a>
-                <a href="[Your LinkedIn Link]" target="_blank" style="font-weight: 500;">LinkedIn</a>
-                <a href="[Your GitHub Link]" target="_blank" style="font-weight: 500;">GitHub</a>
-                <a href="[Link to your PDF resume]" target="_blank" style="font-weight: 500;">View Resume (PDF)</a>
+    <!-- 📞 Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Get In Touch</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded mx-auto"></div>
+                <p class="text-gray-400 text-sm mt-4 max-w-md mx-auto">
+                    Let's discuss how my experience in web application development, database structures, and dynamic design interfaces can add value to your next project.
+                </p>
+            </div>
+
+            <div class="max-w-md mx-auto">
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:your-email@example.com" class="w-full inline-flex items-center justify-center px-6 py-3 bg-brand hover:bg-brand/90 text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
+                        Send Email Direct
+                    </a>
+                    
+                    <div class="flex items-center justify-center gap-6 mt-4 text-sm font-medium text-gray-400">
+                        <a href="https://github.com/" target="_blank" class="hover:text-brand transition-colors">GitHub</a>
+                        <span class="text-gray-700">|</span>
+                        <a href="https://linkedin.com/" target="_blank" class="hover:text-brand transition-colors">LinkedIn</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; [Year] [Your Name]. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-darkBorder bg-darkBg">
+        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-gray-500">
+            <p>&copy; 2026 Mark Andre R. Bay-o. All rights reserved.</p>
         </div>
     </footer>
 
