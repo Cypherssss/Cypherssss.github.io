@@ -291,24 +291,88 @@
     <!-- Contact Section -->
     <section id="contact" class="py-24">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-12 text-center">
+            <div class="mb-12">
                 <h2 class="text-2xl md:text-3xl font-extrabold text-white">Get In Touch</h2>
-                <div class="h-1 w-12 bg-brand mt-2 rounded mx-auto"></div>
-                <p class="text-gray-400 text-sm mt-4 max-w-md mx-auto">
-                    Let's discuss how my experience in web application development, database structures, and dynamic design interfaces can add value to your next project.
-                </p>
+                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
             </div>
 
-            <div class="max-w-md mx-auto">
-                <div class="flex flex-col gap-4">
-                    <a href="mailto:markandrebayo234@gmail.com" class="w-full inline-flex items-center justify-center px-6 py-3 bg-brand hover:bg-brand/90 text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
-                        Send Email Direct
-                    </a>
-                    <div class="flex items-center justify-center gap-6 mt-4 text-sm font-medium text-gray-400">
-                        <a href="https://github.com/" target="_blank" class="hover:text-brand transition-colors">GitHub</a>
-                        <span class="text-gray-700">|</span>
-                        <a href="https://linkedin.com/" target="_blank" class="hover:text-brand transition-colors">LinkedIn</a>
+            <div class="grid md:grid-cols-12 gap-12">
+                <div class="md:col-span-5 flex flex-col justify-between space-y-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-3">Let's build something together</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            I am currently open to junior roles, freelance projects, and collaborations. Whether you have a question or just want to discuss technical systems, my inbox is open.
+                        </p>
                     </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-darkCard border border-darkBorder flex items-center justify-center text-brand">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Location</p>
+                                <p class="text-sm font-medium text-gray-300">Benguet, Philippines</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-darkCard border border-darkBorder flex items-center justify-center text-brand">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Response Rate</p>
+                                <p class="text-sm font-medium text-gray-300">Within 24 Hours</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-darkCard border border-darkBorder flex items-center justify-center text-brand">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="text-xs text-gray-500">Direct Email</p>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-sm font-medium text-gray-300 select-all" id="email-text">your-email@example.com</span>
+                                    <button onclick="copyEmail()" class="text-xs text-brand hover:text-white transition-colors" id="copy-btn">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4 border-t border-darkBorder">
+                        <a href="https://github.com/" target="_blank" class="text-sm font-medium text-gray-400 hover:text-brand transition-colors">GitHub</a>
+                        <span class="text-gray-750">|</span>
+                        <a href="https://linkedin.com/" target="_blank" class="text-sm font-medium text-gray-400 hover:text-brand transition-colors">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 bg-darkCard border border-darkBorder p-6 md:p-8 rounded-2xl">
+                    <form action="https://formspree.io/f/xpqvqkgq" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-2">
+                                <label for="name" class="text-xs font-semibold uppercase tracking-wider text-gray-400">Your Name</label>
+                                <input type="text" id="name" name="name" required class="w-full bg-darkBg border border-darkBorder focus:border-brand focus:ring-1 focus:ring-brand rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all" placeholder="John Doe">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="email" class="text-xs font-semibold uppercase tracking-wider text-gray-400">Email Address</label>
+                                <input type="email" id="email" name="email" required class="w-full bg-darkBg border border-darkBorder focus:border-brand focus:ring-1 focus:ring-brand rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all" placeholder="johndoe@email.com">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="subject" class="text-xs font-semibold uppercase tracking-wider text-gray-400">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full bg-darkBg border border-darkBorder focus:border-brand focus:ring-1 focus:ring-brand rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all" placeholder="Project Discussion / Job Opportunity">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="message" class="text-xs font-semibold uppercase tracking-wider text-gray-400">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full bg-darkBg border border-darkBorder focus:border-brand focus:ring-1 focus:ring-brand rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all resize-none" placeholder="Hello, I'd like to discuss..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3.5 bg-brand hover:bg-brand/90 text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -436,6 +500,24 @@
             if (e.key === 'ArrowRight') modalNext();
             if (e.key === 'ArrowLeft') modalPrev();
         });
+
+
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            const copyBtn = document.getElementById('copy-btn');
+            
+            navigator.clipboard.writeText(emailText).then(() => {
+                copyBtn.innerText = 'Copied!';
+                copyBtn.classList.remove('text-brand');
+                copyBtn.classList.add('text-green-400');
+                
+                setTimeout(() => {
+                    copyBtn.innerText = 'Copy';
+                    copyBtn.classList.remove('text-green-400');
+                    copyBtn.classList.add('text-brand');
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
