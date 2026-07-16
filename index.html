@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Andre R. Bay-o | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Custom Tailwind Configuration for Animations and Colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -18,9 +14,9 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        brand: '#5eac40', // Accent green
-                        darkBg: '#0b0c10', // Deep rich dark background
-                        darkCard: '#14151a', // Soft dark for cards
+                        brand: '#5eac40',
+                        darkBg: '#0b0c10',
+                        darkCard: '#14151a',
                         darkBorder: '#22252e'
                     },
                     animation: {
@@ -37,20 +33,17 @@
             }
         }
     </script>
-
     <style>
-        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-        /* Style adjustments to make things pop */
         .fade-in-delay-1 { animation-delay: 0.2s; }
         .fade-in-delay-2 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-brand selection:text-darkBg">
 
-    <!-- 🌐 Header / Navigation -->
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-darkBorder">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#" class="text-lg font-bold tracking-wider text-white hover:text-brand transition-colors">
@@ -65,11 +58,9 @@
         </div>
     </nav>
 
-    <!-- 🚀 Animated Hero Section with Background Image -->
+    <!-- Hero Section -->
     <header class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-cover bg-center" 
             style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1920&auto=format&fit=crop');">
-        
-        <!-- Gradient overlay to blend background image seamlessly into the layout -->
         <div class="absolute inset-0 bg-gradient-to-r from-darkBg via-darkBg/90 to-darkBg/60"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent"></div>
 
@@ -99,7 +90,7 @@
         </div>
     </header>
 
-    <!-- 🛠️ Core Skills Section -->
+    <!-- Skills Section -->
     <section id="skills" class="py-24 bg-darkCard/30 border-y border-darkBorder">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-12">
@@ -108,52 +99,42 @@
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <!-- Tailwind CSS -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Tailwind CSS</div>
                     <div class="text-xs text-gray-500 mt-1">Utility-First Styling</div>
                 </div>
-                <!-- HTML -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">HTML</div>
                     <div class="text-xs text-gray-500 mt-1">Semantic Web Markup</div>
                 </div>
-                <!-- CSS -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">CSS</div>
                     <div class="text-xs text-gray-500 mt-1">Responsive Design & Layouts</div>
                 </div>
-                <!-- MySQL -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">MySQL</div>
                     <div class="text-xs text-gray-500 mt-1">Relational Databases & Queries</div>
                 </div>
-                <!-- Bootstrap -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Bootstrap</div>
                     <div class="text-xs text-gray-500 mt-1">Rapid UI Framework Componentry</div>
                 </div>
-                <!-- JavaScript -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">JavaScript</div>
                     <div class="text-xs text-gray-500 mt-1">Interactive Frontend Engine</div>
                 </div>
-                <!-- Python -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">Python</div>
                     <div class="text-xs text-gray-500 mt-1">Logic Programming & Scripts</div>
                 </div>
-                <!-- MVC Architecture -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">MVC Architecture</div>
                     <div class="text-xs text-gray-500 mt-1">Structured Software Design Patterns</div>
                 </div>
-                <!-- GitHub -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">GitHub</div>
                     <div class="text-xs text-gray-500 mt-1">Version Control & Collaboration</div>
                 </div>
-                <!-- XAMPP -->
                 <div class="bg-darkCard border border-darkBorder p-5 rounded-xl hover:border-brand/40 transition-all duration-300 hover:-translate-y-1 group">
                     <div class="text-sm font-semibold text-white group-hover:text-brand transition-colors">XAMPP</div>
                     <div class="text-xs text-gray-500 mt-1">Local Development Environment</div>
@@ -162,9 +143,7 @@
         </div>
     </section>
 
-    
-
-    <!-- 🚀 Projects Section -->
+    <!-- Projects Section -->
     <section id="projects" class="py-24">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-12">
@@ -172,18 +151,14 @@
                 <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
             </div>
 
-            <!-- Vertical Stack of Two-Column Project Sections -->
             <div class="space-y-16">
-                
                 <!-- Project 1: MPDO Website -->
                 <article class="bg-darkCard border border-darkBorder rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 items-center group hover:border-brand/40 transition-all duration-300">
-                    <!-- Text Content (Left Column on Desktop) -->
                     <div class="w-full md:w-1/2 flex flex-col h-full">
                         <span class="text-xs font-bold uppercase tracking-widest text-brand mb-2">Production Ready</span>
                         <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-brand transition-colors">Document Tracking System</h3>
                         <p class="text-gray-400 text-sm mt-3 leading-relaxed mb-6">
                             Developed a secure digital document tracking and routing solution for the Mayor's Office. Simplifies complex file navigation, status logging, and department workflows.
-                        </p>
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="text-[11px] font-semibold tracking-wide bg-darkBg text-gray-400 border border-darkBorder px-2.5 py-1 rounded-full">PHP</span>
@@ -196,26 +171,20 @@
                         </div>
                     </div>
 
-                    <!-- Slidable Image Carousel (Right Column on Desktop) -->
                     <div class="w-full md:w-1/2 relative overflow-hidden rounded-xl border border-darkBorder aspect-video bg-slate-950 group/slider" id="carousel-mpdo">
-                        <!-- Carousel Wrapper (Images) -->
                         <div class="flex transition-transform duration-500 ease-out h-full" id="slides-mpdo">
-                            <!-- Change these image paths to your downloaded image files -->
-                            <img src="images/iodt-1.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-2.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-3.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-1.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-2.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-3.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
                         </div>
 
-                        <!-- Left Arrow Button -->
                         <button onclick="slidePrev('mpdo')" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-darkBg/80 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 z-10">
                             &#10094;
                         </button>
-                        <!-- Right Arrow Button -->
                         <button onclick="slideNext('mpdo')" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-darkBg/80 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 z-10">
                             &#10095;
                         </button>
 
-                        <!-- Indicator Dots -->
                         <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" id="dots-mpdo">
                             <span onclick="goToSlide('mpdo', 0)" class="w-2 h-2 rounded-full bg-brand cursor-pointer transition-all"></span>
                             <span onclick="goToSlide('mpdo', 1)" class="w-2 h-2 rounded-full bg-gray-500 hover:bg-brand cursor-pointer transition-all"></span>
@@ -226,7 +195,6 @@
 
                 <!-- Project 2: PC Information Website -->
                 <article class="bg-darkCard border border-darkBorder rounded-2xl p-6 md:p-8 flex flex-col md:flex-row-reverse gap-8 items-center group hover:border-brand/40 transition-all duration-300">
-                    <!-- Text Content (Left Column on Desktop) -->
                     <div class="w-full md:w-1/2 flex flex-col h-full">
                         <span class="text-xs font-bold uppercase tracking-widest text-brand mb-2">Side Project</span>
                         <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-brand transition-colors">PC Information & Build Manager</h3>
@@ -244,27 +212,21 @@
                         </div>
                     </div>
 
-                    <!-- Slidable Image Carousel (Right Column on Desktop) -->
                     <div class="w-full md:w-1/2 relative overflow-hidden rounded-xl border border-darkBorder aspect-video bg-slate-950 group/slider" id="carousel-pc">
-                        <!-- Carousel Wrapper (Images) -->
                         <div class="flex transition-transform duration-500 ease-out h-full" id="slides-pc">
-                            <!-- Change these image paths to your downloaded image files -->
-                            <img src="images/pc-project.png" onclick="openImageModal(this.src, 'pc')" alt="PC Project Main" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/pc-1.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/pc2.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/pc-3.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-project.png" onclick="openImageModal(this.src, 'pc')" alt="PC Project Main" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-1.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc2.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-3.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
                         </div>
 
-                        <!-- Left Arrow Button -->
                         <button onclick="slidePrev('pc')" class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-darkBg/80 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 z-10">
                             &#10094;
                         </button>
-                        <!-- Right Arrow Button -->
                         <button onclick="slideNext('pc')" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-darkBg/80 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center transition-all opacity-0 group-hover/slider:opacity-100 z-10">
                             &#10095;
                         </button>
 
-                        <!-- Indicator Dots -->
                         <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" id="dots-pc">
                             <span onclick="goToSlide('pc', 0)" class="w-2 h-2 rounded-full bg-brand cursor-pointer transition-all"></span>
                             <span onclick="goToSlide('pc', 1)" class="w-2 h-2 rounded-full bg-gray-500 hover:bg-brand cursor-pointer transition-all"></span>
@@ -273,28 +235,121 @@
                         </div>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <!-- 🛠️ JavaScript Logic for Carousels (Place this right above the closing </body> tag) -->
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-24 bg-darkCard/30 border-y border-darkBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Work / Project Experience</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
+            </div>
+
+            <div class="space-y-12 max-w-3xl">
+                <div class="relative pl-6 border-l-2 border-brand/40">
+                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
+                    <h3 class="text-lg font-bold text-white">Practicum Intern — Web Development</h3>
+                    <p class="text-sm font-medium text-brand mt-1">Municipal Planning and Development Office, LGU Itogon</p>
+                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | March 2026 – April 2026[cite: 1]</p>
+                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
+                        <li>Designed, configured, and developed the official website for the Municipal Planning and Development Office (MPDO) of LGU Itogon.</li>
+                        <li>Structured and managed standard database schemas in MySQL to securely handle dynamic office data, records, and routing workflows.</li>
+                        <li>Presented website development milestones to office stakeholders, collected structured feedback, and iterated on visual and technical updates.</li>
+                    </ul>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-brand/40">
+                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
+                    <h3 class="text-lg font-bold text-white">Practicum Intern — Web Development</h3>
+                    <p class="text-sm font-medium text-brand mt-1">Municipality of Itogon</p>
+                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | March 2026 – April 2026[cite: 1]</p>
+                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
+                        <li>Designed, configured, and developed features for the digital Document Tracking System directly servicing the Itogon Mayor's Office.</li>
+                        <li>Successfully structured and managed standard database schemas in SQL to route and verify documents securely.</li>
+                        <li>Presented development milestones to the mayor's office, collected structured stakeholder feedback, and iterated on visual and technical updates.</li>
+                    </ul>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-brand/40">
+                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
+                    <h3 class="text-lg font-bold text-white">PC Project — Web Development</h3>
+                    <p class="text-sm font-medium text-brand mt-1">School Project</p>
+                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | 2025</p>
+                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
+                        <li>Designed, configured, and developed a dynamic system to organize, catalog, and display detailed personal computer hardware specifications.</li>
+                        <li>Structured and managed relational database schemas in MySQL to efficiently store, retrieve, and query hardware components and compatibility data.</li>
+                        <li>Implemented a clean, interactive user interface using Bootstrap and JavaScript to allow seamless searching, filtering, and comparison of PC parts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Get In Touch</h2>
+                <div class="h-1 w-12 bg-brand mt-2 rounded mx-auto"></div>
+                <p class="text-gray-400 text-sm mt-4 max-w-md mx-auto">
+                    Let's discuss how my experience in web application development, database structures, and dynamic design interfaces can add value to your next project.
+                </p>
+            </div>
+
+            <div class="max-w-md mx-auto">
+                <div class="flex flex-col gap-4">
+                    <a href="mailto:your-email@example.com" class="w-full inline-flex items-center justify-center px-6 py-3 bg-brand hover:bg-brand/90 text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
+                        Send Email Direct
+                    </a>
+                    <div class="flex items-center justify-center gap-6 mt-4 text-sm font-medium text-gray-400">
+                        <a href="https://github.com/" target="_blank" class="hover:text-brand transition-colors">GitHub</a>
+                        <span class="text-gray-700">|</span>
+                        <a href="https://linkedin.com/" target="_blank" class="hover:text-brand transition-colors">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-darkBorder bg-darkBg">
+        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-gray-500">
+            <p>&copy; 2026 Mark Andre R. Bay-o. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Zoom Lightbox Modal Overlay -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center select-none">
+        <button class="absolute top-6 right-6 text-white hover:text-brand text-4xl font-light z-[110]" onclick="closeImageModal()">&times;</button>
+        <button onclick="modalPrev()" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
+            &#10094;
+        </button>
+        <div class="max-w-[85%] max-h-[80vh] flex items-center justify-center" onclick="closeImageModal()">
+            <img id="modal-img" src="" alt="Zoomed View" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-darkBorder object-contain transition-all duration-300 cursor-zoom-out" onclick="event.stopPropagation()">
+        </div>
+        <button onclick="modalNext()" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
+            &#10095;
+        </button>
+    </div>
+
+    <!-- Interface Logic Scripts -->
     <script>
-        // Track indices for multiple slide sliders independently
         const sliderIndices = {
             mpdo: 0,
             pc: 0
         };
+
+        let currentActiveProject = '';
 
         function updateSlider(id) {
             const index = sliderIndices[id];
             const slideContainer = document.getElementById(`slides-${id}`);
             const dotContainer = document.getElementById(`dots-${id}`);
             
-            // Slide the container by multiplying index by 100%
             slideContainer.style.transform = `translateX(-${index * 100}%)`;
             
-            // Update the dots style
             const dots = dotContainer.children;
             for (let i = 0; i < dots.length; i++) {
                 if (i === index) {
@@ -326,133 +381,60 @@
             updateSlider(id);
         }
 
-        // Zoom Modal Functions
-        function openImageModal(imageSrc) {
+        function openImageModal(imageSrc, projectId) {
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
             
+            currentActiveProject = projectId;
+            
+            const slideContainer = document.getElementById(`slides-${projectId}`);
+            const images = Array.from(slideContainer.getElementsByTagName('img'));
+            const clickedIndex = images.findIndex(img => img.getAttribute('src') === imageSrc || img.src === imageSrc);
+            
+            if (clickedIndex !== -1) {
+                sliderIndices[projectId] = clickedIndex;
+            }
+
             modalImg.src = imageSrc;
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevents background scrolling while zoomed
+            document.body.style.overflow = 'hidden';
         }
 
         function closeImageModal() {
             const modal = document.getElementById('image-modal');
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restores scrolling
+            document.body.style.overflow = '';
         }
-    </script>
 
-   <!-- 🔍 Full-Screen Image Zoom Modal with Next/Prev Controls -->
-    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center select-none">
-        <!-- Close Button (Top Right) -->
-        <button class="absolute top-6 right-6 text-white hover:text-brand text-4xl font-light z-[110]" onclick="closeImageModal()">&times;</button>
-        
-        <!-- Left Arrow (Zoomed) -->
-        <button onclick="modalPrev()" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
-            &#10094;
-        </button>
+        function modalNext() {
+            if (!currentActiveProject) return;
+            slideNext(currentActiveProject);
+            updateModalImage();
+        }
 
-        <!-- Zoomed Image Container -->
-        <div class="max-w-[85%] max-h-[80vh] flex items-center justify-center" onclick="closeImageModal()">
-            <img id="modal-img" src="" alt="Zoomed View" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-darkBorder object-contain transition-all duration-300 cursor-zoom-out" onclick="event.stopPropagation()">
-        </div>
+        function modalPrev() {
+            if (!currentActiveProject) return;
+            slidePrev(currentActiveProject);
+            updateModalImage();
+        }
 
-        <!-- Right Arrow (Zoomed) -->
-        <button onclick="modalNext()" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
-            &#10095;
-        </button>
-    </div>
-
-    <!-- 💼 Work & Practicum Experience -->
-    <section id="experience" class="py-24 bg-darkCard/30 border-y border-darkBorder">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Work / Project Experience</h2>
-                <div class="h-1 w-12 bg-brand mt-2 rounded"></div>
-            </div>
-
-            <div class="space-y-12 max-w-3xl">
-                <!-- Practicum Experience -->
-                <div class="relative pl-6 border-l-2 border-brand/40">
-                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
-                    <h3 class="text-lg font-bold text-white">Practicum Intern — Web Development</h3>
-                    <p class="text-sm font-medium text-brand mt-1">Municipal Planning and Development Office, LGU Itogon</p>
-                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | March 2026 – April 2026</p>
-                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
-                        <li>Designed, configured, and developed the official website for the Municipal Planning and Development Office (MPDO) of LGU Itogon.</li>
-                        <li>Structured and managed standard database schemas in MySQL to securely handle dynamic office data, records, and routing workflows.</li>
-                        <li>Presented website development milestones to office stakeholders, collected structured feedback, and iterated on visual and technical updates.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="space-y-12 max-w-3xl">
-                <!-- Practicum Experience -->
-                <div class="relative pl-6 border-l-2 border-brand/40">
-                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
-                    <h3 class="text-lg font-bold text-white">Practicum Intern — Web Development</h3>
-                    <p class="text-sm font-medium text-brand mt-1">Municipality of Itogon</p>
-                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | March 2026 – April 2026</p>
-                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
-                        <li>Designed, configured, and developed features for the digital Document Tracking System directly servicing the Itogon Mayor's Office.</li>
-                        <li>Successfully structured and managed standard database schemas in SQL to route and verify documents securely.</li>
-                        <li>Presented development milestones to the mayor's office, collected structured stakeholder feedback, and iterated on visual and technical updates.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="space-y-12 max-w-3xl">
-                <!-- Practicum Experience -->
-                <div class="relative pl-6 border-l-2 border-brand/40">
-                    <div class="absolute w-3 h-3 bg-brand rounded-full -left-[7px] top-[6px] ring-4 ring-darkBg"></div>
-                    <h3 class="text-lg font-bold text-white">PC Project — Web Development</h3>
-                    <p class="text-sm font-medium text-brand mt-1">School Project</p>
-                    <p class="text-xs text-gray-500 mb-4">Benguet, Philippines | 2025</p>
-                    <ul class="list-disc pl-4 text-gray-400 text-sm space-y-2 leading-relaxed">
-                        <li>Designed, configured, and developed a dynamic system to organize, catalog, and display detailed personal computer hardware specifications.</li>
-                        <li>Structured and managed relational database schemas in MySQL to efficiently store, retrieve, and query hardware components and compatibility data.</li>
-                        <li>Implemented a clean, interactive user interface using Bootstrap and JavaScript to allow seamless searching, filtering, and comparison of PC parts.</li>
-                    </ul>
-                </div>
-            </div>
+        function updateModalImage() {
+            const id = currentActiveProject;
+            const index = sliderIndices[id];
+            const slideContainer = document.getElementById(`slides-${id}`);
+            const images = slideContainer.getElementsByTagName('img');
             
-        </div>
-    </section>
+            document.getElementById('modal-img').src = images[index].getAttribute('src') || images[index].src;
+        }
 
-    <!-- 📞 Contact Section -->
-    <section id="contact" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-white">Get In Touch</h2>
-                <div class="h-1 w-12 bg-brand mt-2 rounded mx-auto"></div>
-                <p class="text-gray-400 text-sm mt-4 max-w-md mx-auto">
-                    Let's discuss how my experience in web application development, database structures, and dynamic design interfaces can add value to your next project.
-                </p>
-            </div>
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('image-modal');
+            if (modal.classList.contains('hidden')) return;
 
-            <div class="max-w-md mx-auto">
-                <div class="flex flex-col gap-4">
-                    <a href="mailto:your-email@example.com" class="w-full inline-flex items-center justify-center px-6 py-3 bg-brand hover:bg-brand/90 text-darkBg font-bold text-sm rounded-lg hover:shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-200">
-                        Send Email Direct
-                    </a>
-                    
-                    <div class="flex items-center justify-center gap-6 mt-4 text-sm font-medium text-gray-400">
-                        <a href="https://github.com/" target="_blank" class="hover:text-brand transition-colors">GitHub</a>
-                        <span class="text-gray-700">|</span>
-                        <a href="https://linkedin.com/" target="_blank" class="hover:text-brand transition-colors">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-darkBorder bg-darkBg">
-        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-gray-500">
-            <p>&copy; 2026 Mark Andre R. Bay-o. All rights reserved.</p>
-        </div>
-    </footer>
-
+            if (e.key === 'Escape') closeImageModal();
+            if (e.key === 'ArrowRight') modalNext();
+            if (e.key === 'ArrowLeft') modalPrev();
+        });
+    </script>
 </body>
 </html>
