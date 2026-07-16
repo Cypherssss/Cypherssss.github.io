@@ -201,9 +201,9 @@
                         <!-- Carousel Wrapper (Images) -->
                         <div class="flex transition-transform duration-500 ease-out h-full" id="slides-mpdo">
                             <!-- Change these image paths to your downloaded image files -->
-                            <img src="images/iodt-1.png" onclick="openImageModal(this.src)" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-2.png" onclick="openImageModal(this.src)" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-3.png" onclick="openImageModal(this.src)" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-1.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-2.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-3.png" onclick="openImageModal(this.src, 'mpdo')" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
                         </div>
 
                         <!-- Left Arrow Button -->
@@ -249,8 +249,10 @@
                         <!-- Carousel Wrapper (Images) -->
                         <div class="flex transition-transform duration-500 ease-out h-full" id="slides-pc">
                             <!-- Change these image paths to your downloaded image files -->
-                            <img src="images/pc-project.png" alt="PC Project Main" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-1.png" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-project.png" onclick="openImageModal(this.src, 'pc')" alt="PC Project Main" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-1.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc2.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/pc-3.png" onclick="openImageModal(this.src, 'pc')" alt="PC Specs Detail" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=800&auto=format&fit=crop'">
                         </div>
 
                         <!-- Left Arrow Button -->
@@ -266,6 +268,8 @@
                         <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" id="dots-pc">
                             <span onclick="goToSlide('pc', 0)" class="w-2 h-2 rounded-full bg-brand cursor-pointer transition-all"></span>
                             <span onclick="goToSlide('pc', 1)" class="w-2 h-2 rounded-full bg-gray-500 hover:bg-brand cursor-pointer transition-all"></span>
+                            <span onclick="goToSlide('pc', 2)" class="w-2 h-2 rounded-full bg-gray-500 hover:bg-brand cursor-pointer transition-all"></span>
+                            <span onclick="goToSlide('pc', 3)" class="w-2 h-2 rounded-full bg-gray-500 hover:bg-brand cursor-pointer transition-all"></span>
                         </div>
                     </div>
                 </article>
@@ -339,12 +343,25 @@
         }
     </script>
 
-    <!-- 🔍 Full-Screen Image Zoom Modal -->
-    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center cursor-zoom-out" onclick="closeImageModal()">
-        <!-- Close Button -->
-        <button class="absolute top-6 right-6 text-white hover:text-brand text-3xl font-light" onclick="closeImageModal()">&times;</button>
-        <!-- Zoomed Image -->
-        <img id="modal-img" src="" alt="Zoomed View" class="max-w-[90%] max-h-[85vh] rounded-lg shadow-2xl border border-darkBorder object-contain transition-transform duration-300">
+   <!-- 🔍 Full-Screen Image Zoom Modal with Next/Prev Controls -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center select-none">
+        <!-- Close Button (Top Right) -->
+        <button class="absolute top-6 right-6 text-white hover:text-brand text-4xl font-light z-[110]" onclick="closeImageModal()">&times;</button>
+        
+        <!-- Left Arrow (Zoomed) -->
+        <button onclick="modalPrev()" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
+            &#10094;
+        </button>
+
+        <!-- Zoomed Image Container -->
+        <div class="max-w-[85%] max-h-[80vh] flex items-center justify-center" onclick="closeImageModal()">
+            <img id="modal-img" src="" alt="Zoomed View" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border border-darkBorder object-contain transition-all duration-300 cursor-zoom-out" onclick="event.stopPropagation()">
+        </div>
+
+        <!-- Right Arrow (Zoomed) -->
+        <button onclick="modalNext()" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-darkBg/60 border border-darkBorder text-white hover:text-brand hover:border-brand flex items-center justify-center text-xl transition-all z-[110]">
+            &#10095;
+        </button>
     </div>
 
     <!-- 💼 Work & Practicum Experience -->
