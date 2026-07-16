@@ -201,9 +201,9 @@
                         <!-- Carousel Wrapper (Images) -->
                         <div class="flex transition-transform duration-500 ease-out h-full" id="slides-mpdo">
                             <!-- Change these image paths to your downloaded image files -->
-                            <img src="images/iodt-1.png" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-2.png" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
-                            <img src="images/iodt-3.png" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-1.png" onclick="openImageModal(this.src)" alt="MPDO Home Screen" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-2.png" onclick="openImageModal(this.src)" alt="MPDO Admin Panel" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop'">
+                            <img src="images/iodt-3.png" onclick="openImageModal(this.src)" alt="MPDO Database View" class="w-full h-full object-cover flex-shrink-0" onerror="this.src='https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800&auto=format&fit=crop'">
                         </div>
 
                         <!-- Left Arrow Button -->
@@ -320,6 +320,22 @@
         function goToSlide(id, index) {
             sliderIndices[id] = index;
             updateSlider(id);
+        }
+
+        // Zoom Modal Functions
+        function openImageModal(imageSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling while zoomed
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restores scrolling
         }
     </script>
 
